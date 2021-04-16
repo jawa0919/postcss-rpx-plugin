@@ -6,10 +6,10 @@
 
 首先安装了[`postcss-loader`](https://www.npmjs.com/package/postcss-loader)
 
-执行`npm i postcss-rpx-loader -D`以安装本插件
+执行`npm i postcss-rpx-plugin -D`以安装本插件
 
 ```
-npm i postcss-rpx-loader -D
+npm i postcss-rpx-plugin -D
 ```
 
 ## 默认参数
