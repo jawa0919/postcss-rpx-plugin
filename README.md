@@ -66,3 +66,9 @@ npm i postcss-rpx-plugin -D
     expect(processed).toBe(expected);
   });
   ```
+
+## Thanks
+
+[postcss-rpxtopx](https://github.com/yangmingshan/postcss-rpxtopx)
+
+[postcss-rpx-loader](https://github.com/vlev1n/postcss-rpx-loader)
