@@ -1,7 +1,7 @@
 {
   "name": "postcss-rpx-plugin",
-  "version": "1.0.0",
-  "description": "postcss rpx plugin",
+  "version": "1.0.1",
+  "description": "postcss rpx plugin  rpx2vw",
   "main": "index.js",
   "homepage": "https://github.com/jawa0919/postcss-rpx-plugin",
   "author": "jawa0919 <jawa0919@163.com>",
@@ -9,20 +9,28 @@
     "type": "git",
     "url": "git@github.com:jawa0919/postcss-rpx-plugin.git"
   },
-  "dependencies": {
-    "postcss": "^7.0.6"
+  "devDependencies": {
+    "postcss": "^7.0.35",
+    "jest": "^26.1.0"
+  },
+  "peerDependencies": {
+    "postcss": ">=7.0.0"
   },
   "bugs": {
     "url": "https://github.com/jawa0919/postcss-rpx-plugin/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "postcss",
+    "postcss-loader",
     "postcss-plugin",
+    "postcss-rpx",
     "css",
+    "px",
     "rpx2vw",
+    "rpxtovw",
     "rpx",
     "vw",
     "wechat",
