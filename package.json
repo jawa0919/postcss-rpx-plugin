@@ -1,8 +1,9 @@
 {
   "name": "postcss-rpx-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "postcss rpx plugin  rpx2vw",
   "main": "index.js",
+  "types": "index.d.ts",
   "homepage": "https://github.com/jawa0919/postcss-rpx-plugin",
   "author": "jawa0919 <jawa0919@163.com>",
   "repository": {

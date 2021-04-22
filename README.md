@@ -58,6 +58,7 @@ npm i postcss-rpx-plugin -D
   ```
 
 - url ignore
+
   ```js
   it("should not replace values in `url()`", () => {
     const rules = ".rule { background: url(16rpx.jpg); }";
@@ -65,6 +66,30 @@ npm i postcss-rpx-plugin -D
     const processed = postcss(rpx2vm()).process(rules).css;
     expect(processed).toBe(expected);
   });
+  ```
+
+### V1.0.2
+
+- add @type
+
+  ```ts
+  import { AcceptedPlugin } from "postcss";
+
+  declare function PostcssRpxPlugin(
+    options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
+  ): AcceptedPlugin;
+
+  declare namespace PostcssRpxPlugin {
+    interface Options {
+      unit: string;
+      width: number;
+      precision: number;
+      outUnit: string;  ，
+      exclude: string | RegExp;
+    }
+  }
+
+  export = PostcssRpxPlugin;
   ```
 
 ## Thanks

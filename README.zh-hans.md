@@ -129,6 +129,7 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
   });
   ```
 - url 忽略
+
   ```js
   it("should not replace values in `url()`", () => {
     const rules = ".rule { background: url(16rpx.jpg); }";
@@ -136,6 +137,30 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
     const processed = postcss(rpx2vm()).process(rules).css;
     expect(processed).toBe(expected);
   });
+  ```
+
+### V1.0.2
+
+- 添加 @type
+
+  ```ts
+  import { AcceptedPlugin } from "postcss";
+
+  declare function PostcssRpxPlugin(
+  options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
+  ): AcceptedPlugin;
+
+  declare namespace PostcssRpxPlugin {
+  interface Options {
+    unit: string;
+    width: number;
+    precision: number;
+    outUnit: string;  ，
+    exclude: string | RegExp;
+  }
+  }
+
+  export = PostcssRpxPlugin;
   ```
 
 ## 感谢
