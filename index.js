@@ -2,12 +2,16 @@
 
 const postcss = require("postcss");
 
-module.exports = postcss.plugin("postcss-rpx-plugin", function (options) {
-  const unit = options?.unit || "rpx"; // 自定义的单位
-  const width = options?.width || 750; // ui图宽度
-  const precision = options?.precision || 5; // 配置精确度
-  const outUnit = options?.outUnit || "vw"; // 输入单位，// TODO 其他单位
-  const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
+module.exports = postcss.plugin("postcss-rpx-plugin", function (opt) {
+  opt = {
+    unit: "rpx", // 自定义的单位
+    width: 750, // ui图宽度
+    precision: 5, // 配置精确度
+    outUnit: "vw", // 输入单位，// TODO 其他单位
+    exclude: "", // 配置忽略文件，正则匹配
+    ...opt,
+  };
+  const { unit, width, precision, outUnit, exclude } = opt;
   if (width < 375 || width > 2160) {
     console.error("Width should be between 375 and 2160");
     return;

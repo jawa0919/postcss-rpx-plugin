@@ -163,6 +163,11 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
   export = PostcssRpxPlugin;
   ```
 
+  ### V1.0.3
+
+- 修复 构建 `options?.unit` 保存
+- 修复 type ?
+
 ## 感谢
 
 [postcss-rpxtopx](https://github.com/yangmingshan/postcss-rpxtopx)

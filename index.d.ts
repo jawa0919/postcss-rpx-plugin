@@ -8,7 +8,7 @@
 import { AcceptedPlugin } from "postcss";
 
 declare function PostcssRpxPlugin(
-  options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
+  options?: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
 ): AcceptedPlugin;
 
 declare namespace PostcssRpxPlugin {

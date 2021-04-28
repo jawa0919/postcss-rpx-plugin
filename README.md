@@ -92,6 +92,11 @@ npm i postcss-rpx-plugin -D
   export = PostcssRpxPlugin;
   ```
 
+  ### V1.0.3
+
+- fix build `options?.unit` error
+- fix type ?
+
 ## Thanks
 
 [postcss-rpxtopx](https://github.com/yangmingshan/postcss-rpxtopx)
