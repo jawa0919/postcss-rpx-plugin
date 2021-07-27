@@ -2,6 +2,14 @@
 
 rpx2vw
 
+[![Version npm](https://img.shields.io/npm/v/postcss-rpx-plugin.svg)](https://www.npmjs.com/package/postcss-rpx-plugin)
+
+[![GitHub](https://img.shields.io/badge/github-jawa0919-brightgreen.svg)](https://github.com/jawa0919)
+
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
+
+[![GitHub](https://img.shields.io/github/license/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
+
 [中文 README](https://github.com/jawa0919/postcss-rpx-plugin/blob/master/README.zh-hans.md)
 
 ## Usage

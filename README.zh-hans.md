@@ -2,6 +2,14 @@
 
 [`postcss`](https://github.com/postcss/postcss) 插件，用于将 css 中的 rpx 单位换算成 vw 单位
 
+[![Version npm](https://img.shields.io/npm/v/postcss-rpx-plugin.svg)](https://www.npmjs.com/package/postcss-rpx-plugin)
+
+[![GitHub](https://img.shields.io/badge/github-jawa0919-brightgreen.svg)](https://github.com/jawa0919)
+
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
+
+[![GitHub](https://img.shields.io/github/license/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
+
 ## 特点
 
 [`更新`](#更新)
