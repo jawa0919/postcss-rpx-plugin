@@ -48,16 +48,37 @@ npm i postcss-rpx-plugin@1.0.3 -D
 
 ## CHANGELOG
 
-### V1.0.0
+### V2.0.0
 
-- Int rpx
-  ```js
-  it("should replace the rpx unit with vw - Int", () => {
-    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
-    const expected = ".rule { margin: 1.33333vw 50vw 0 10px; }";
-    const processed = postcss(rpx2vm()).process(rules).css;
-    expect(processed).toBe(expected);
-  });
+- support postcss@8
+
+### V1.0.3
+
+- fix build `options?.unit` error
+- fix type ?
+
+### V1.0.2
+
+- add @type
+
+  ```ts
+  import { AcceptedPlugin } from "postcss";
+
+  declare function PostcssRpxPlugin(
+    options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
+  ): AcceptedPlugin;
+
+  declare namespace PostcssRpxPlugin {
+    interface Options {
+      unit: string;
+      width: number;
+      precision: number;
+      outUnit: string;  ，
+      exclude: string | RegExp;
+    }
+  }
+
+  export = PostcssRpxPlugin;
   ```
 
 ### V1.0.1
@@ -84,38 +105,17 @@ npm i postcss-rpx-plugin@1.0.3 -D
   });
   ```
 
-### V1.0.2
+### V1.0.0
 
-- add @type
-
-  ```ts
-  import { AcceptedPlugin } from "postcss";
-
-  declare function PostcssRpxPlugin(
-    options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
-  ): AcceptedPlugin;
-
-  declare namespace PostcssRpxPlugin {
-    interface Options {
-      unit: string;
-      width: number;
-      precision: number;
-      outUnit: string;  ，
-      exclude: string | RegExp;
-    }
-  }
-
-  export = PostcssRpxPlugin;
+- Int rpx
+  ```js
+  it("should replace the rpx unit with vw - Int", () => {
+    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const expected = ".rule { margin: 1.33333vw 50vw 0 10px; }";
+    const processed = postcss(rpx2vm()).process(rules).css;
+    expect(processed).toBe(expected);
+  });
   ```
-
-### V1.0.3
-
-- fix build `options?.unit` error
-- fix type ?
-
-### V2.0.0
-
-- support postcss@8
 
 ## Thanks
 

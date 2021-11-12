@@ -119,39 +119,14 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
 
 ## 更新
 
-### V1.0.0
+### V2.0.0
 
-- 整数 rpx
-  ```js
-  it("should replace the rpx unit with vw", () => {
-    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
-    const expected = ".rule { margin: 1.33333vw 50vw 0 10px; }";
-    const processed = postcss(rpx()).process(rules).css;
-    expect(processed).toBe(expected);
-  });
-  ```
+- 支持 postcss8 版本
 
-### V1.0.1
+### V1.0.3
 
-- 小数 rpx
-  ```js
-  it("should replace the rpx unit with vw - Float", () => {
-    const rules = ".rule { height: 375.0rpx; }";
-    const expected = ".rule { height: 50vw; }";
-    const processed = postcss(rpx2vm()).process(rules).css;
-    expect(processed).toBe(expected);
-  });
-  ```
-- url 忽略
-
-  ```js
-  it("should not replace values in `url()`", () => {
-    const rules = ".rule { background: url(16rpx.jpg); }";
-    const expected = ".rule { background: url(16rpx.jpg); }";
-    const processed = postcss(rpx2vm()).process(rules).css;
-    expect(processed).toBe(expected);
-  });
-  ```
+- 修复 构建 `options?.unit` 保存
+- 修复 type ?
 
 ### V1.0.2
 
@@ -177,14 +152,39 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
   export = PostcssRpxPlugin;
   ```
 
-### V1.0.3
+### V1.0.1
 
-- 修复 构建 `options?.unit` 保存
-- 修复 type ?
+- 小数 rpx
+  ```js
+  it("should replace the rpx unit with vw - Float", () => {
+    const rules = ".rule { height: 375.0rpx; }";
+    const expected = ".rule { height: 50vw; }";
+    const processed = postcss(rpx2vm()).process(rules).css;
+    expect(processed).toBe(expected);
+  });
+  ```
+- url 忽略
 
-### V2.0.0
+  ```js
+  it("should not replace values in `url()`", () => {
+    const rules = ".rule { background: url(16rpx.jpg); }";
+    const expected = ".rule { background: url(16rpx.jpg); }";
+    const processed = postcss(rpx2vm()).process(rules).css;
+    expect(processed).toBe(expected);
+  });
+  ```
 
-- 支持 postcss8 版本
+### V1.0.0
+
+- 整数 rpx
+  ```js
+  it("should replace the rpx unit with vw", () => {
+    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const expected = ".rule { margin: 1.33333vw 50vw 0 10px; }";
+    const processed = postcss(rpx()).process(rules).css;
+    expect(processed).toBe(expected);
+  });
+  ```
 
 ## 感谢
 
