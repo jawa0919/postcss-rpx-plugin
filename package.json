@@ -1,6 +1,6 @@
 {
   "name": "postcss-rpx-plugin",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "postcss rpx plugin  rpx2vw",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,11 +11,11 @@
     "url": "git@github.com:jawa0919/postcss-rpx-plugin.git"
   },
   "devDependencies": {
-    "postcss": "^7.0.35",
+    "postcss": "^8.3.11",
     "jest": "^26.1.0"
   },
   "peerDependencies": {
-    "postcss": ">=7.0.0"
+    "postcss": ">=8.0.0"
   },
   "bugs": {
     "url": "https://github.com/jawa0919/postcss-rpx-plugin/issues"

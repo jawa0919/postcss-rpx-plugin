@@ -14,8 +14,16 @@ rpx2vw
 
 ## Usage
 
+### postcss@8
+
 ```
 npm i postcss-rpx-plugin -D
+```
+
+### postcss@7 postcss@6 postcss@5
+
+```
+npm i postcss-rpx-plugin@1.0.3 -D
 ```
 
 `package.json`
@@ -100,10 +108,14 @@ npm i postcss-rpx-plugin -D
   export = PostcssRpxPlugin;
   ```
 
-  ### V1.0.3
+### V1.0.3
 
 - fix build `options?.unit` error
 - fix type ?
+
+### V2.0.0
+
+- support postcss@8
 
 ## Thanks
 

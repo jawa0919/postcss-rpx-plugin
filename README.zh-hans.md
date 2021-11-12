@@ -28,6 +28,12 @@ npm i postcss postcss-loader -D
 npm i postcss-rpx-plugin -D
 ```
 
+如果 postcss 版本低于 8 的版本请使用
+
+```
+npm i postcss-rpx-plugin@1.0.3 -D
+```
+
 配置在`package.json`配置插件
 
 ```json
@@ -171,10 +177,14 @@ const exclude = options?.exclude || ""; // 配置忽略文件，正则匹配
   export = PostcssRpxPlugin;
   ```
 
-  ### V1.0.3
+### V1.0.3
 
 - 修复 构建 `options?.unit` 保存
 - 修复 type ?
+
+### V2.0.0
+
+- 支持 postcss8 版本
 
 ## 感谢
 
