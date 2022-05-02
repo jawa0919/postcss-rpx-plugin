@@ -1,32 +1,81 @@
 # postcss-rpx-plugin
 
-rpx2vw
-
-[![Version npm](https://img.shields.io/npm/v/postcss-rpx-plugin.svg)](https://www.npmjs.com/package/postcss-rpx-plugin)
-
-[![GitHub](https://img.shields.io/badge/github-jawa0919-brightgreen.svg)](https://github.com/jawa0919)
-
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
-
-[![GitHub](https://img.shields.io/github/license/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
+[![Version npm](https://img.shields.io/npm/v/postcss-rpx-plugin.svg)](https://www.npmjs.com/package/postcss-rpx-plugin) [![GitHub package.json version](https://img.shields.io/github/package-json/v/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin) [![GitHub](https://img.shields.io/github/license/jawa0919/postcss-rpx-plugin)](https://github.com/jawa0919/postcss-rpx-plugin)
 
 [中文 README](https://github.com/jawa0919/postcss-rpx-plugin/blob/master/README.zh-hans.md)
 
+Based on [`postcss`](https://github.com/postcss/postcss) A plug-in for converting rpx units in CSS into VW units. It is applicable to the design draft with fixed width and uncertain height in the mobile end. You can also set the width and matching unit by yourself.
+
+```css
+/* before */
+.rule {
+  margin: 10rpx 375rpx 0rpx 10px;
+  height: 375rpx;
+  background: url(icon-16rpx.jpg);
+}
+
+/* after */
+.rule {
+  margin: 1.33333vw 50vw 0 10px;
+  height: 50vw;
+  background: url(icon-16rpx.jpg);
+}
+```
+
 ## Usage
 
-### postcss@8
+First install [`postcss-loader`](https://www.npmjs.com/package/postcss-loader) And [`postcss`](https://www.npmjs.com/package/postcss)。 CLI with CSS loader integrated can skip this step
 
+```bash
+npm i postcss postcss-loader -D
 ```
+
+Install the plug-in
+
+```bash
 npm i postcss-rpx-plugin -D
 ```
 
-### postcss@7 postcss@6 postcss@5
+Please use the version of postcss@7 postcss@6 postcss@5
 
-```
+```bash
+# postcss@7 postcss@6 postcss@5
 npm i postcss-rpx-plugin@1.0.3 -D
 ```
 
-`package.json`
+## configure
+
+in `postcss.config.js`
+
+```js
+module.exports = {
+  plugins: [
+    // register
+    require("postcss-rpx-plugin"),
+  ],
+};
+```
+
+custom configure `postcss.config.js`
+
+```js
+module.exports = {
+  plugins: [
+    [
+      "postcss-rpx-plugin",
+      {
+        unit: "rpx",
+        width: 750,
+        precision: 5,
+        outUnit: "vw",
+        exclude: "",
+      },
+    ],
+  ],
+};
+```
+
+or in `package.json`
 
 ```json
 {
@@ -46,7 +95,32 @@ npm i postcss-rpx-plugin@1.0.3 -D
 }
 ```
 
+## Options
+
+```js
+const unit = options?.unit || "rpx"; // unit
+const width = options?.width || 750; // ui design width
+const precision = options?.precision || 5; // decimal places
+const outUnit = options?.outUnit || "vw"; //  out unit
+const exclude = options?.exclude || ""; // exclude some file,support regex
+```
+
 ## CHANGELOG
+
+### V2.0.1
+
+- fix readme
+- add test
+  ```js
+  it("should exclude file", () => {
+    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const expected = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const from = "c:/a/b/c/d.css";
+    const pc = postcss(rpx2vm({ exclude: ".css" }));
+    const processed = pc.process(rules, { from }).css;
+    expect(processed).toBe(expected);
+  });
+  ```
 
 ### V2.0.0
 
@@ -55,31 +129,11 @@ npm i postcss-rpx-plugin@1.0.3 -D
 ### V1.0.3
 
 - fix build `options?.unit` error
-- fix type ?
+- fix `@type` ?
 
 ### V1.0.2
 
 - add @type
-
-  ```ts
-  import { AcceptedPlugin } from "postcss";
-
-  declare function PostcssRpxPlugin(
-    options: PostcssRpxPlugin.Options | Partial<PostcssRpxPlugin.Options>
-  ): AcceptedPlugin;
-
-  declare namespace PostcssRpxPlugin {
-    interface Options {
-      unit: string;
-      width: number;
-      precision: number;
-      outUnit: string;  ，
-      exclude: string | RegExp;
-    }
-  }
-
-  export = PostcssRpxPlugin;
-  ```
 
 ### V1.0.1
 
@@ -98,8 +152,8 @@ npm i postcss-rpx-plugin@1.0.3 -D
 
   ```js
   it("should not replace values in `url()`", () => {
-    const rules = ".rule { background: url(16rpx.jpg); }";
-    const expected = ".rule { background: url(16rpx.jpg); }";
+    const rules = ".rule { background: url(icon-16rpx.jpg); }";
+    const expected = ".rule { background: url(icon-16rpx.jpg); }";
     const processed = postcss(rpx2vm()).process(rules).css;
     expect(processed).toBe(expected);
   });
@@ -122,3 +176,9 @@ npm i postcss-rpx-plugin@1.0.3 -D
 [postcss-rpxtopx](https://github.com/yangmingshan/postcss-rpxtopx)
 
 [postcss-rpx-loader](https://github.com/vlev1n/postcss-rpx-loader)
+
+## Other
+
+[![GitHub](https://img.shields.io/badge/github-jawa0919-brightgreen.svg)](https://github.com/jawa0919)
+
+You are welcome to put forward your ideas and feedback [issues](https://github.com/jawa0919/postcss-rpx-plugin/issues)

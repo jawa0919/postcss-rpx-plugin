@@ -5,7 +5,7 @@ module.exports = (opt = {}) => {
     unit: "rpx", // 自定义的单位
     width: 750, // ui图宽度
     precision: 5, // 配置精确度
-    outUnit: "vw", // 输入单位，// TODO 其他单位
+    outUnit: "vw", // 输出单位，
     exclude: "", // 配置忽略文件，正则匹配
     ...opt,
   };
@@ -24,9 +24,6 @@ module.exports = (opt = {}) => {
       root.walkRules(function (rule) {
         rule.walkDecls(function (decl) {
           if (decl.value.includes(unit)) {
-            // var regExp1 = /(\d+)(rpx)/g;
-            // form https://github.com/vlev1n/postcss-rpx-loader/blob/master/index.js
-            const r1 = new RegExp("(\\d+)(" + unit + ")", "g");
             // var regExp2 = /"[^"]+"|'[^']+'|url\([^\)]+\)|(\d*\.?\d+)rpx/g;
             // form https://github.com/yangmingshan/postcss-rpxtopx/blob/master/lib/rpx-unit-regex.js
             const r2 = new RegExp(

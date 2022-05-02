@@ -1,6 +1,6 @@
 {
   "name": "postcss-rpx-plugin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "postcss rpx plugin  rpx2vw",
   "main": "index.js",
   "types": "index.d.ts",

@@ -19,9 +19,18 @@ describe("postcss-rpx-plugin", () => {
   });
 
   it("should not replace values in `url()`", () => {
-    const rules = ".rule { background: url(16rpx.jpg); }";
-    const expected = ".rule { background: url(16rpx.jpg); }";
+    const rules = ".rule { background: url(icon-16rpx.jpg); }";
+    const expected = ".rule { background: url(icon-16rpx.jpg); }";
     const processed = postcss(rpx2vm()).process(rules).css;
+    expect(processed).toBe(expected);
+  });
+
+  it("should exclude file", () => {
+    const rules = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const expected = ".rule { margin: 10rpx 375rpx 0rpx 10px; }";
+    const from = "c:/a/b/c/d.css";
+    const pc = postcss(rpx2vm({ exclude: ".css" }));
+    const processed = pc.process(rules, { from }).css;
     expect(processed).toBe(expected);
   });
 });
